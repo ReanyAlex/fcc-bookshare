@@ -14,9 +14,13 @@
 <div class="container">
   <% books.forEach(function(book,i){ %>
     <div class="box row-3">
-      <h3><%= book.volumeInfo.title %></h3>
+      <h3 class="book-title"><%= book.volumeInfo.title %></h3>
       <a href="<%= book.previewLink %>" target="_blank">
-        <img src="<%= book.volumeInfo.imageLinks.smallThumbnail %>" alt="">
+        <% if(!book.volumeInfo.imageLinks) { %>
+          <img class="no-photo" src="/images/no_photo.jpg" alt="">
+        <% } else { %>
+          <img src="<%= book.volumeInfo.imageLinks.smallThumbnail%>" alt="">
+      <% } %>
       </a>
       <form class="" action="/mybooks/add" method="post">
         <button type="submit" name="book" value="<%= JSON.stringify(book) %>">Add</button>

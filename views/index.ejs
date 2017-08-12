@@ -8,7 +8,7 @@
     <div class="container">
       <% books.forEach(function(book,i){ %>
         <div class="box row-3">
-          <h3><%= book.title %></h3>
+          <h3 class="book-title"><%= book.title %></h3>
           <a href="<%= book.previewLink %>" target="_blank">
             <img src="<%= book.image %>" alt="">
           </a>

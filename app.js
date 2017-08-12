@@ -27,7 +27,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 //=========================
 //MONGOOSE DB
-var url = process.env.DATABASEURLTD || "mongodb://localhost/book-sharing"
+var url = process.env.DATABASEURL || "mongodb://localhost/book-sharing"
 mongoose.connect(url);
 //===============
 //Set up
@@ -54,7 +54,6 @@ app.get('/', function(req,res){
         tradeUserArray.push(trade.currentOwner_id);
       })
 
-      console.log(tradeUserArray);
       res.render("index", {books: allBooks, tradeUserArray: tradeUserArray} )
 
     })
@@ -128,10 +127,16 @@ app.post("/mybooks/new", function(req, res){
 //add books
 app.post("/mybooks/add", function(req, res){
   let book = JSON.parse(req.body.book);
+  let image = ""
+  if (book.volumeInfo.imageLinks === undefined) {
+    image = "/images/no_photo.jpg"
+  } else{
+    image = book.volumeInfo.imageLinks.smallThumbnail
+  }
 
   let newBook = {
     title: book.volumeInfo.title,
-    image: book.volumeInfo.imageLinks.smallThumbnail,
+    image: image,
     previewLink: book.volumeInfo.previewLink,
     user: {
       id: req.user._id,

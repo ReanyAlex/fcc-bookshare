@@ -12,7 +12,7 @@
             <% } else { %>
             <% if(request.requester.username !== currentUser.username) { %>
               <div class="box row-3">
-                <h3><%= request.title %></h3>
+                <h3 class="book-title"><%= request.title %></h3>
                 <a href="<%= request.previewLink %>" target="_blank">
                   <img src="<%= request.image %>" alt="">
                 </a>

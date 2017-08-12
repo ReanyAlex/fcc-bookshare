@@ -20,6 +20,14 @@ a.item{
   border-left: 1px solid slategray;
 }
 
+img{
+  height: 200px;
+  width:128px;
+}
+
+.book-title{
+  height: 4rem;
+}
 
 .title{
   background: lightblue;
@@ -42,7 +50,7 @@ a.item{
 
 .box{
   background: white;
-  height: 325px;
+  height: 375px;
   display: inline-block;
   border: 4px lightgray solid;
   padding-top: 10px;
