@@ -27,7 +27,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 //=========================
 //MONGOOSE DB
-var url = process.env.DATABASEURL || "mongodb://localhost/book-sharing"
+var url = process.env.DATABASEURLBS || "mongodb://localhost/book-sharing"
 mongoose.connect(url);
 //===============
 //Set up
