@@ -1,0 +1,29 @@
+<% include ./partials/header %>
+
+
+    <div class="title">
+      <h1>Book Sharing<h1>
+    </div>
+
+    <div class="container">
+      <% books.forEach(function(book,i){ %>
+        <div class="box row-3">
+          <h3><%= book.title %></h3>
+          <a href="<%= book.previewLink %>" target="_blank">
+            <img src="<%= book.image %>" alt="">
+          </a>
+          <p> Book Owned by: <%= book.user.username %></p>
+          <% if(!currentUser){ %>
+            <% } else { %>
+            <% if(book.user.username !== currentUser.username && !tradeUserArray.includes(book._id.toString())) { %>
+              <form class="" action="/trade" method="post">
+                <button type="submit" name="book" value="<%= JSON.stringify(book) %>">Request</button>
+              </form>
+            <% } %>
+          <% } %>
+        </div>
+      <% }) %>
+    </div>
+
+
+<% include ./partials/footer %>

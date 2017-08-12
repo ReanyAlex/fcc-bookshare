@@ -1,0 +1,27 @@
+<% include ./partials/header %>
+
+<div class="title">
+  <h1><%= currentUser.firstname %> <%= currentUser.lastname %> Book Sharing<h1>
+</div>
+
+<div class="container">
+  <a href="/mybooks/new"><h3>Add a Book</h3></a>
+  <h3 class="pad-left"> Current Books </h3>
+</div>
+
+<div class="container">
+  <% books.forEach(function(book,i){ %>
+    <div class="box row-3">
+      <h3><%= book.title %></h3>
+      <a href="<%= book.previewLink %>" target="_blank">
+        <img src="<%= book.image %>" alt="">
+      </a>
+      <form class="" action="/mybooks/delete" method="post">
+        <button type="submit" name="book" value="<%= JSON.stringify(book) %>">Remove</button>
+      </form>
+    </div>
+
+  <% }) %>
+</div>
+
+<% include ./partials/footer %>

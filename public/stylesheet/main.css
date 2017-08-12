@@ -1,0 +1,81 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background: lightgray;
+}
+
+.ui.inverted.menu{
+  background: lightblue;
+  color: white;
+  border-bottom: 1px solid slategray;
+}
+
+a.header.item{
+  border-right: 1px solid slategray;
+}
+
+a.item{
+  border-left: 1px solid slategray;
+}
+
+
+.title{
+  background: lightblue;
+  color: white;
+  margin-top: 180px;
+  width: 87%;
+  margin: 0 auto;
+  margin-top: 75px;
+  padding-top: 25px;
+  height: 75px;
+  font-size: 6rem;
+  padding-left: 30px;
+}
+
+.container{
+  padding-top: 20px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.box{
+  background: white;
+  height: 325px;
+  display: inline-block;
+  border: 4px lightgray solid;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  /*margin-left: 5px;
+  margin-right: 5px;*/
+  text-align: center;
+}
+
+.row{
+
+}
+
+.row-1{
+  width:0.833%;
+  float: left;
+}
+
+.row-2{
+  width:16.66%;
+  float: left;
+}
+
+.row-3{
+  width:25%;
+  float: left;
+}
+
+.row-4{
+  width:33.33%;
+  float: left;
+}
+
+.pad-left{
+  padding-left: 5px;
+}

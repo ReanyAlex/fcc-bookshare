@@ -1,0 +1,28 @@
+<% include ./partials/header %>
+
+<div class="title">
+  <h1><%= currentUser.firstname %> <%= currentUser.lastname %> New Book<h1>
+
+</div>
+<div class="container">
+  <form class="" action="/mybooks/new" method="post">
+    <input type="text" name="book_title" value="" placeholder="Search for a new book">
+    <input type="submit">
+  </form>
+</div>
+
+<div class="container">
+  <% books.forEach(function(book,i){ %>
+    <div class="box row-3">
+      <h3><%= book.volumeInfo.title %></h3>
+      <a href="<%= book.previewLink %>" target="_blank">
+        <img src="<%= book.volumeInfo.imageLinks.smallThumbnail %>" alt="">
+      </a>
+      <form class="" action="/mybooks/add" method="post">
+        <button type="submit" name="book" value="<%= JSON.stringify(book) %>">Add</button>
+      </form>
+    </div>
+  <% }) %>
+</div>
+
+<% include ./partials/footer %>

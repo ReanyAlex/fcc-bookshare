@@ -1,0 +1,30 @@
+<% include ./partials/header %>
+
+
+    <div class="title">
+      <h1>Requested Trades<h1>
+    </div>
+
+    <div class="container">
+      <% requests.forEach(function(request,i){ %>
+
+          <% if(!currentUser){ %>
+            <% } else { %>
+            <% if(request.requester.username !== currentUser.username) { %>
+              <div class="box row-3">
+                <h3><%= request.title %></h3>
+                <a href="<%= request.previewLink %>" target="_blank">
+                  <img src="<%= request.image %>" alt="">
+                </a>
+                <p> Book Owned by: <%= request.currentOwner.username %></p>
+              <form class="" action="/trade/approved" method="post">
+                <button type="submit" name="request" value="<%= JSON.stringify(request) %>">Approve</button>
+              </form>
+            <% } %>
+          <% } %>
+        </div>
+      <% }) %>
+    </div>
+
+
+<% include ./partials/footer %>
